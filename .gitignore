@@ -1,0 +1,79 @@
+# =========================
+# Quartus Prime .gitignore
+# =========================
+
+# Database & compilation output
+db/
+incremental_db/
+qdb/
+cdb/
+
+# Output files
+output_files/
+*.rpt
+*.summary
+*.smsg
+*.pin
+*.sof
+*.pof
+*.jam
+*.jbc
+*.ekp
+*.jdi
+*.map
+*.fit
+*.sta
+
+# Programming / simulation output
+*.vcd
+*.wlf
+*.log
+*.jou
+
+# Temp and cache
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+*.ncb
+*.opendb
+
+# Quartus-generated settings (machine-specific)
+*.qws
+*.qdf
+*.assignment_defaults.qdf
+
+# IP-generated files (rebuildable)
+ip/
+*.ipregen.rpt
+
+# Platform Designer (Qsys) generated
+*.qsys_edit/
+*.qsys_simdir/
+
+# Simulation directories
+simulation/
+modelsim/
+questa/
+
+# SignalTap / debug
+*.stp
+*.stp1
+
+# Timing analysis / reports
+*.sta.rpt
+*.fit.rpt
+*.map.rpt
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+
+# VS Code / IDE
+.vscode/
+.idea/
+
+# Python (if using scripts)
+__pycache__/
+*.pyc

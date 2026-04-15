@@ -21,4 +21,10 @@ package pacote_ula is
 			res : out std_logic_vector(3 downto 0)
 		);
 	end component;
+	component comparador is
+		port (
+			a, b : in std_logic_vector(3 downto 0);
+			GRT, LST, EQU: out std_logic
+		);
+	end component;
 end package;

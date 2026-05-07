@@ -24,7 +24,7 @@ architecture bhv of top is
 		a <= SW(3 downto 0);
 		b <= SW(7 downto 4);
 		opcode <= SW(10 downto 8);
-		ULA0: entity work.ula port map(
+		ULA: entity work.ula port map(
 			a => a,
 			b => b,
 			opcode => opcode,

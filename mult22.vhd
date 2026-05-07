@@ -12,13 +12,6 @@ architecture Behavioral of mult22 is
 	signal s0, s1, s2, s3 : std_logic;
 	signal carry : std_logic;
 	begin
-		--   10
-		-- X 01
-		 ------
-		--   10
-		-- +00
-		 ------
-		-- = 10
 		res(0) <= a(0) and b(0);
 		s0 <= a(1) and b(0);
 		s1 <= a(0) and b(1);

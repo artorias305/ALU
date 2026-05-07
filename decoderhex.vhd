@@ -28,5 +28,5 @@ architecture bhv of decoderhex is
 				not "1011110" when "1101",
 				not "1111001" when "1110",
 				not "1110001" when "1111",
-           "1111111"      when others;
+				not "0000000" when others;
 end architecture;

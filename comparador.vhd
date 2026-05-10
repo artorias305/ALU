@@ -16,12 +16,12 @@ begin
     E(1) <= a(1) xnor b(1);
     E(0) <= a(0) xnor b(0);
 
-    G(3) <= a(3) and (not b(3));
+    G(3) <= (not a(3)) and b(3);
     G(2) <= a(2) and (not b(2));
     G(1) <= a(1) and (not b(1));
     G(0) <= a(0) and (not b(0));
 
-    L(3) <= (not a(3)) and b(3);
+    L(3) <= a(3) and (not b(3));
     L(2) <= (not a(2)) and b(2);
     L(1) <= (not a(1)) and b(1);
     L(0) <= (not a(0)) and b(0);

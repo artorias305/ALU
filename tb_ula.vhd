@@ -108,6 +108,10 @@ architecture tb of tb_ula is
         wait for 100 ps;
         a <= "1111"; b <= "1000"; opcode <= "111";
         wait for 100 ps;
+		  a <= "1000"; b <= "0000"; opcode <= "111";
+		  wait for 100 ps;
+		  a <= "0000"; b <= "1000"; opcode <= "111";
+		  wait for 100 ps;
         wait;
 		end process;
 end architecture;

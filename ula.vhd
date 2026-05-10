@@ -20,6 +20,7 @@ architecture Behavioral of ula is
 	signal cout_add, cout_sub : std_logic;
 	signal b_neg : std_logic_vector(3 downto 0);
 	signal res_int : std_logic_vector(3 downto 0);
+	signal s_eq, s_gt, s_lt : std_logic;
 	begin
 		and_res <= a and b;
 		or_res <= a or b;
@@ -63,7 +64,14 @@ architecture Behavioral of ula is
 		overflow <= (not(a(3)) and not(b(3)) and add_res(3)) or (a(3) and b(3) and not(add_res(3))) when opcode = "100" else
                 (not(a(3)) and b(3) and sub_res(3)) or (a(3) and not(b(3)) and not(sub_res(3))) when opcode = "101" else
                 '0';
-		equ <= '1' when (a = b) and opcode = "111" else '0';
-		grt <= '1' when (signed(a) > signed(b)) and opcode = "111" else '0';
-		lst <= '1' when (signed(a) < signed(b)) and opcode = "111" else '0';
+		CMP: entity work.comparador port map(
+			a => a,
+			b => b,
+			GRT => s_gt,
+			LST => s_lt,
+			EQU => s_eq
+		);
+		equ <= '1' when s_eq = '1' and opcode = "111" else '0';
+		grt <= '1' when s_gt = '1' and opcode = "111" else '0';
+		lst <= '1' when s_lt = '1' and opcode = "111" else '0';
 end architecture;

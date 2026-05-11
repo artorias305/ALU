@@ -60,7 +60,7 @@ architecture Behavioral of ula is
 		cout <= cout_add when opcode = "100" else
 				  cout_sub when opcode = "101" else
 				  '0';
-		zero <= '1' when res_int = "0000" and opcode /= "000" else '0';
+		zero <= '1' when res_int = "0000" and opcode /= "000" and opcode /= "111" else '0';
 		overflow <= (not(a(3)) and not(b(3)) and add_res(3)) or (a(3) and b(3) and not(add_res(3))) when opcode = "100" else
                 (not(a(3)) and b(3) and sub_res(3)) or (a(3) and not(b(3)) and not(sub_res(3))) when opcode = "101" else
                 '0';

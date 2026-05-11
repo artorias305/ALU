@@ -5,11 +5,8 @@ entity top is
 	port(
 			SW : in std_logic_vector(17 downto 0);
 			
-			H0 : out std_logic_vector(6 downto 0);
-			H1 : out std_logic_vector(6 downto 0);
-			H2 : out std_logic_vector(6 downto 0);
-			H3 : out std_logic_vector(6 downto 0);
-			H4 : out std_logic_vector(6 downto 0)
+			H0, H2, H4, H6 : out std_logic_vector(6 downto 0);
+			LEDR : out std_logic_vector(5 downto 0)
 	);
 end entity;
 
@@ -19,11 +16,11 @@ architecture bhv of top is
 	signal resultado : std_logic_vector(3 downto 0);
 	signal cout, zero, overflow : std_logic;
 	signal equ, grt, lst : std_logic;
-	signal flags : std_logic_vector(3 downto 0);
+	
 	begin
-		a <= SW(3 downto 0);
-		b <= SW(7 downto 4);
-		opcode <= SW(10 downto 8);
+		a <= SW(10 downto 7);
+		b <= SW(6 downto 3);
+		opcode <= SW(2 downto 0);
 		ULA: entity work.ula port map(
 			a => a,
 			b => b,
@@ -36,13 +33,16 @@ architecture bhv of top is
 			grt => grt,
 			lst => lst
 		);
-		flags(0) <= cout;
-		flags(1) <= zero;
-		flags(2) <= overflow;
-		flags(3) <= equ or grt or lst;
-		HEX_A: entity work.decoderhex port map(hex => a, seg => H0);
-		HEX_B: entity work.decoderhex port map(hex => b, seg => H1);
-		HEX_OP: entity work.decoderhex port map(hex => '0' & opcode, seg => H2);
-		HEX_RES: entity work.decoderhex port map(hex => resultado, seg => H3);
-		HEX_FLAGS: entity work.decoderhex port map(hex => flags, seg => H4);
+		
+		LEDR(0) <= cout;
+		LEDR(1) <= zero;
+		LEDR(2) <= overflow;
+		LEDR(3) <= equ;
+		LEDR(4) <= grt;
+		LEDR(5) <= lst;
+		
+		HEX_OP: entity work.decoderhex port map(hex => "0" & opcode, seg => H0);
+		HEX_B: entity work.decoderhex port map(hex => b, seg => H2);
+		HEX_A: entity work.decoderhex port map(hex => a, seg => H4);
+		HEX_RES: entity work.decoderhex port map(hex => resultado, seg => H6);
 end architecture;

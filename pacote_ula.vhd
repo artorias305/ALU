@@ -27,4 +27,10 @@ package pacote_ula is
 			GRT, LST, EQU: out std_logic
 		);
 	end component;
+	component negador is
+	port(
+		v : in std_logic_vector(3 downto 0);
+		o : out std_logic_vector(3 downto 0)
+	);
+	end component;
 end package;

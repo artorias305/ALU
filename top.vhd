@@ -5,7 +5,7 @@ entity top is
 	port(
 			SW : in std_logic_vector(17 downto 0);
 			
-			H0, H2, H4, H6 : out std_logic_vector(6 downto 0);
+			HEX0, HEX2, HEX4, HEX6 : out std_logic_vector(6 downto 0);
 			LEDR : out std_logic_vector(5 downto 0)
 	);
 end entity;

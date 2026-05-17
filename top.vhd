@@ -37,9 +37,9 @@ architecture bhv of top is
 			lst => lst
 		);
 
-		NEGADO_RES: entity work.negador port map(v => resultado, o => negado_res);
-		NEGADO_A: entity work.negador port map(v => a, o => negado_a);
-		NEGADO_B: entity work.negador port map(v => b, o => negado_b);
+		NEGADO_RES_I: entity work.negador port map(v => resultado, o => negado_res);
+		NEGADO_A_I: entity work.negador port map(v => a, o => negado_a);
+		NEGADO_B_I: entity work.negador port map(v => b, o => negado_b);
 		
 		LEDR(0) <= cout;
 		LEDR(1) <= zero;

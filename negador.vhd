@@ -14,6 +14,6 @@ architecture bhv of negador is
 			a => not v,
 			b => "0000",
 			cin => '1',
-			resultado => o
+			soma => o
 		);
 end architecture;
